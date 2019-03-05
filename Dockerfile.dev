@@ -1,7 +1,8 @@
 FROM node:alpine
 
-ENV HTTP_PROXY="http://172.5.2.110:8080/"
-ENV HTTPS_PROXY="http://172.5.2.110:8080/"
+ARG proxy="http://172.5.2.110:8080/"
+ENV HTTP_PROXY=$proxy
+ENV HTTPS_PROXY=$proxy
 
 WORKDIR '/app'
 

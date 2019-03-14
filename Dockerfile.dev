@@ -4,7 +4,7 @@ ARG HTTP_PROXY
 ENV HTTP_PROXY=$HTTP_PROXY
 ENV HTTPS_PROXY=$HTTP_PROXY
 
-WORKDIR '/app'
+WORKDIR /app
 
 COPY package.json .
 RUN npm install

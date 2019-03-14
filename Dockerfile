@@ -1,10 +1,10 @@
 FROM node:alpine as builder
 
+ARG HTTP_PROXY
+ENV HTTP_PROXY=$HTTP_PROXY
+ENV HTTPS_PROXY=$HTTP_PROXY
 
-ENV HTTP_PROXY="http://172.5.2.110:8080/"
-ENV HTTPS_PROXY="http://172.5.2.110:8080/"
-
-WORKDIR '/app'
+WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . .

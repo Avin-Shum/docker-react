@@ -1,16 +1,19 @@
 sudo: required
+language: node_js
+node_js:
+  - '11.10'
 services:
   - docker
 
 before_install:
-  - docker build -t avin/docker-react -f Dockerfile.dev .
+  - docker build -t avin/docker-react -f Dockerfile .
 
-script:
-  - docker run avin/docker-react npm run test -- --coverage
+# script:
+# - docker run -it avin/docker-react npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
-  regoin: 'ap-northeast-1'
+  region: 'ap-northeast-1'
   app: 'docker'
   env: 'Docker-env'
   bucket_name: 'elasticbeanstalk-ap-northeast-1-381389287489'
